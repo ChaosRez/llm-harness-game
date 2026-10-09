@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn tokens remapped to THE_HARNESS palette */
+    --background: 120 8% 5%;
+    --foreground: 100 6% 91%;
+    --card: 130 9% 7%;
+    --card-foreground: 100 6% 91%;
+    --popover: 130 9% 7%;
+    --popover-foreground: 100 6% 91%;
+    --primary: 148 70% 62%;
+    --primary-foreground: 120 8% 5%;
+    --secondary: 130 6% 10%;
+    --secondary-foreground: 100 6% 91%;
+    --muted: 130 6% 10%;
+    --muted-foreground: 120 5% 63%;
+    --accent: 130 6% 10%;
+    --accent-foreground: 100 6% 91%;
+    --destructive: 2 71% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 130 6% 16%;
+    --input: 130 6% 16%;
+    --ring: 168 56% 60%;
+    --radius: 2px;
+    --sidebar-background: 130 9% 7%;
+    --sidebar-foreground: 100 6% 91%;
+    --sidebar-primary: 148 70% 62%;
+    --sidebar-primary-foreground: 120 8% 5%;
+    --sidebar-accent: 130 6% 10%;
+    --sidebar-accent-foreground: 100 6% 91%;
+    --sidebar-border: 130 6% 16%;
+    --sidebar-ring: 168 56% 60%;
+  }
+
+  html {
+    background-color: #0b0d0c;
+    scrollbar-color: #262b27 #0b0d0c;
+  }
+
+  body {
+    @apply bg-bg-0 text-text-mid font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-text-hi;
+    letter-spacing: -0.02em;
+  }
+
+  code, kbd, pre, .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background: rgba(87, 227, 154, 0.25);
+    color: #e8eae6;
+  }
+
+  :focus-visible {
+    outline: 1px solid #57c7b8;
+    outline-offset: 2px;
+  }
+
+  /* Custom cursor: hide native pointer on fine-pointer devices (custom square cursor renders instead) */
+  @media (pointer: fine) {
+    body.has-custom-cursor,
+    body.has-custom-cursor a,
+    body.has-custom-cursor button,
+    body.has-custom-cursor [role="button"] {
+      cursor: none;
+    }
+  }
+}
+
+@layer utilities {
+  /* Rack grid — faint 48px cells, like a datacenter floor plan */
+  .rack-grid {
+    background-image:
+      repeating-linear-gradient(to right, rgba(38, 43, 39, 0.4) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(to bottom, rgba(38, 43, 39, 0.4) 0 1px, transparent 1px 48px);
+  }
+  .rack-grid-faint {
+    background-image:
+      repeating-linear-gradient(to right, rgba(38, 43, 39, 0.22) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(to bottom, rgba(38, 43, 39, 0.22) 0 1px, transparent 1px 48px);
+  }
+
+  /* Scanline overlay (3px, 4% opacity) — hero/game surfaces only */
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(232, 234, 230, 0.04) 0 1px, transparent 1px 3px);
+    z-index: 30;
+  }
+
+  /* Mono eyebrow / HUD label */
+  .eyebrow {
+    @apply font-mono text-[12px] uppercase tracking-[0.12em] text-text-low;
+  }
+
+  /* Blinking block cursor glyph */
+  .block-cursor::after {
+    content: "▮";
+    margin-left: 2px;
+    @apply animate-block-blink text-signal-green;
+  }
+
+  /* Marquee pause on hover */
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-band:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .glow-text-green {
+    text-shadow: 0 0 18px rgba(87, 227, 154, 0.35);
+  }
+
+  /* HUD digit flash on update (120ms green flash) */
+  .digit-flash {
+    animation: digit-flash 120ms ease-out;
+  }
+  @keyframes digit-flash {
+    0% {
+      color: #57e39a;
+      text-shadow: 0 0 10px rgba(87, 227, 154, 0.5);
+    }
+    100% {
+      color: #e8eae6;
+      text-shadow: none;
+    }
+  }
+
+  /* WebGL fallback packets — constant speed, machines don't ease */
+  .packet-drift {
+    animation-name: packet-drift;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes packet-drift {
+    from {
+      transform: translateX(-4vw);
+    }
+    to {
+      transform: translateX(104vw);
+    }
+  }
+
+  /* Final CTA green glow pulse (2s) */
+  .glow-cta {
+    animation: glow-cta 2s ease-in-out infinite;
+  }
+  @keyframes glow-cta {
+    0%,
+    100% {
+      box-shadow: 0 0 24px rgba(87, 227, 154, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 24px rgba(87, 227, 154, 0.22);
+    }
+  }
+}
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .animate-bob,
+    .animate-orbit-pulse,
+    .animate-pulse-dot,
+    .packet-drift,
+    .glow-cta,
+    .block-cursor::after {
+      animation: none !important;
+    }
+    .scanlines::after {
+      opacity: 0.4;
+    }
+  }
+}
