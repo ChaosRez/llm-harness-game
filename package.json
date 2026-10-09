@@ -1,5 +1,5 @@
 {
-  "name": "the-harness",
+  "name": "llm-harness-game",
   "version": "1.0.0",
   "description": "An interactive simulation and educational game teaching LLM harness and agent architecture through distributed systems analogies.",
   "type": "module",
