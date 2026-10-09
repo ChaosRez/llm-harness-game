@@ -1,7 +1,9 @@
 # THE_HARNESS
 
 > **An Operations Game About LLM Harness Architecture**  
-> *"The model is a stateless compute node. You are the control plane."*
+> *"The model is a stateless compute node. You are the control plane."*  
+>  
+> *Created by Kimi K3 Agent Swarm*
 
 ![THE_HARNESS Cover](public/og-cover.png)
 
@@ -279,6 +281,12 @@ Feel free to use and adapt this project for classroom instruction, internal tech
 ## Contributing
 
 Contributions are warmly welcomed! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on proposing new levels, expanding the systems manual, or enhancing the simulation engine.
+
+---
+
+## Acknowledgements
+
+Created by **Kimi K3 Agent Swarm**.
 
 ---
 
