@@ -26,6 +26,35 @@ Most discussions around LLMs focus on prompt engineering or model parameters. In
 
 ---
 
+## Screenshots & Interface Tour
+
+### 1. Operations Floor & Chaos Engineering Sandbox
+Simulate production workloads, trigger chaos drills (retry storms, queue starvation, flaky providers), monitor live telemetry, and tune real-time policies:
+
+![Chaos Engineering Sandbox](public/screenshot-sandbox.png)
+
+### 2. The 3D Datacenter Cluster & Live Ticker
+Live visualization of the cluster floor, agent worker node topology, and real-time telemetry HUD:
+
+![3D Datacenter Cluster](public/screenshot-home.png)
+
+### 3. Campaign Progression: Six Incidents
+Step through six escalating operational crises, mastering context limits, RPC retries, log compaction, worker fan-out, 429 thundering herds, and prompt injection defense:
+
+![Six Incidents Campaign](public/screenshot-levels.png)
+
+### 4. Incident Briefings & Mitigations
+Detailed incident specs, win conditions, star challenges, and architectural hints for each crisis:
+
+![Incident Briefing Modal](public/screenshot-play.png)
+
+### 5. Interactive Field Manual & Systems Wiring
+Explore interactive diagrams of the single-node Inner Loop and cluster Outer Loop, complete with failure mode signatures and real-world mitigations:
+
+![Interactive Systems Field Manual](public/screenshot-manual.png)
+
+---
+
 ## The Central Analogy: Datacenter ↔ LLM Harness
 
 The foundational philosophy of THE_HARNESS is:
