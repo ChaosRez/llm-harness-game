@@ -5,6 +5,8 @@
 >  
 > *Created by Kimi K3 Agent Swarm*
 
+🎮 **Play Live Online**: [https://chaosrez.github.io/llm-harness-game/](https://chaosrez.github.io/llm-harness-game/)
+
 ![THE_HARNESS Cover](public/og-cover.png)
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
